@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
       # Processed images are cached by the hash of the source photos, so unchanged albums
       # aren't re-encoded on every deploy. The build also checks each photo's content hash.
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: |
             public/media
