@@ -34,6 +34,14 @@ describe("parseAlbumConfig", () => {
     expect(cfg({ date: new Date("2026-08-10T00:00:00Z") }).date).toBe("2026-08-10");
     expect(() => cfg({ date: "Aug 10" })).toThrow(/YYYY-MM-DD/);
   });
+
+  it("normalises photo `taken` times, quoted or as YAML timestamps", () => {
+    const taken = (v: unknown) => cfg({ photos: { "a.jpg": { taken: v } } }).photos["a.jpg"].taken;
+    expect(taken("2025-10-19 11:23")).toBe("2025-10-19T11:23:00");
+    expect(taken("2025-10-19T11:23:45")).toBe("2025-10-19T11:23:45");
+    expect(taken(new Date("2025-10-19T11:23:00Z"))).toBe("2025-10-19T11:23:00");
+    expect(() => taken("2025-10-19")).toThrow(/YYYY-MM-DD HH:mm/);
+  });
 });
 
 describe("helpers", () => {
@@ -98,6 +106,17 @@ describe("resolveAlbum", () => {
     expect(album.photos.map((p) => p.gps)).toEqual([
       [12, 45],
       [3, 4],
+    ]);
+  });
+
+  it("prefers album.yml `taken` over EXIF, for display and ordering", () => {
+    const album = resolveAlbum("x", cfg({ photos: { "a.jpg": { taken: "2025-10-19 23:00" } } }), [
+      src("a.jpg", { date: "2025-10-19T01:00:00" }),
+      src("b.jpg", { date: "2025-10-19T12:00:00" }),
+    ]);
+    expect(album.photos.map((p) => [p.file, p.date])).toEqual([
+      ["b.jpg", "2025-10-19T12:00:00"],
+      ["a.jpg", "2025-10-19T23:00:00"],
     ]);
   });
 

@@ -1,0 +1,11 @@
+title: Qatar
+description: A night-time stopover in Doha on the way to Nepal.
+location: Doha, Qatar
+photos:
+  IMG_20251015_131539_00_005.jpg:
+    title: Museum of Islamic Art at night
+    caption: Fountains along the waterfront, with the West Bay skyline across the water.
+    location: Museum of Islamic Art, Doha
+    # Camera clock was still on US Central time.
+    taken: "2025-10-15 21:15:39"
+    gps: { lat: 25.2952, lon: 51.5393 }

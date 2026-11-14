@@ -24,10 +24,24 @@ const dateSchema = z
   .transform((v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v))
   .pipe(z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD"));
 
+/** Local date and time, e.g. "2026-08-10 14:22". Normalised to `YYYY-MM-DDTHH:mm:ss`. */
+const takenSchema = z
+  .union([z.string(), z.date()])
+  // An unquoted YAML timestamp arrives as a Date read as UTC; keep its wall-clock time.
+  .transform((v) => (v instanceof Date ? v.toISOString().slice(0, 19) : v))
+  .pipe(
+    z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2})?$/, "expected YYYY-MM-DD HH:mm")
+      .transform((v) => `${v.slice(0, 10)}T${v.slice(11, 16)}:${v.slice(17, 19) || "00"}`),
+  );
+
 const photoSchema = z.strictObject({
   title: z.string().optional(),
   caption: z.string().optional(),
   location: z.string().optional(),
+  /** Overrides (or supplies) the EXIF date taken, e.g. when the camera clock was wrong. */
+  taken: takenSchema.optional(),
   /** Overrides (or supplies) the EXIF GPS position. */
   gps: z
     .strictObject({ lat: z.number().min(-90).max(90), lon: z.number().min(-180).max(180) })

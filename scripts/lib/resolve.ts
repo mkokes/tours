@@ -63,13 +63,16 @@ export function resolveAlbum(slug: string, config: AlbumConfig, sources: SourceP
     }
   }
 
+  // album.yml's `taken` wins over the EXIF date, for both display and ordering.
+  const dateOf = (s: SourcePhoto) => config.photos[s.file]?.taken ?? s.date;
+
   // Explicit order first, then the rest by date taken, then filename.
   const listed = config.order ?? [];
   const rest = sources
     .filter((s) => !listed.includes(s.file))
     .sort(
       (a, b) =>
-        (a.date ?? UNDATED).localeCompare(b.date ?? UNDATED) || a.file.localeCompare(b.file),
+        (dateOf(a) ?? UNDATED).localeCompare(dateOf(b) ?? UNDATED) || a.file.localeCompare(b.file),
     );
   const ordered = [...listed.map((f) => byFile.get(f)!), ...rest];
 
@@ -82,7 +85,7 @@ export function resolveAlbum(slug: string, config: AlbumConfig, sources: SourceP
       title: c?.title ?? titleCase(photoId(s.file)),
       caption: c?.caption,
       location: c?.location,
-      date: s.date,
+      date: dateOf(s),
       camera: s.camera,
       gps: config.hideLocation ? undefined : gps,
       width: s.width,
