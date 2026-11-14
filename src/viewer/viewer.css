@@ -70,6 +70,51 @@
   overflow: hidden;
 }
 
+/*
+ * Fixed previous/next buttons on the viewer edges. Set above centre so the left one clears the map
+ * (bottom left) when the gallery is open and pushes it up.
+ */
+.tour-nav {
+  position: absolute;
+  top: 30%;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--tour-charcoal) 72%, transparent);
+  backdrop-filter: blur(6px);
+  color: #f7f7f7;
+  font-size: 28px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.tour-nav-prev {
+  left: 12px;
+}
+
+.tour-nav-next {
+  right: 12px;
+}
+
+.tour-nav:hover,
+.tour-nav:focus-visible {
+  background: var(--tour-lime);
+  color: var(--tour-charcoal);
+}
+
+.tour-nav:focus-visible {
+  outline: 2px solid #f7f7f7;
+  outline-offset: 2px;
+}
+
 /* Marker hotspots: a lime dot with a pulsing ring. */
 .tour-pin {
   position: relative;

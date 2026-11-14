@@ -36,16 +36,6 @@ photos:
     location: Bhaktapur
     taken: "2025-10-19 13:58:43"
     gps: { lat: 27.6714, lon: 85.4293 }
-  IMG_20251019_031354_00_041.jpg:
-    title: Lunch in Bhaktapur
-    location: Bhaktapur
-    taken: "2025-10-19 13:58:54"
-    gps: { lat: 27.6714, lon: 85.4293 }
-  IMG_20251019_045443_00_042.jpg:
-    title: Bhaktapur Durbar Square
-    location: Bhaktapur
-    taken: "2025-10-19 15:39:43"
-    gps: { lat: 27.6721, lon: 85.4279 }
   IMG_20251019_045501_00_043.jpg:
     title: Bhaktapur Durbar Square
     location: Bhaktapur
@@ -53,30 +43,15 @@ photos:
     gps: { lat: 27.6721, lon: 85.4279 }
 
   # Ghandruk
-  IMG_20251021_002842_00_052.jpg:
-    title: Road to Ghandruk
-    location: Ghandruk
-    taken: "2025-10-21 11:13:42"
-    gps: { lat: 28.3655, lon: 83.8045 }
   IMG_20251021_002902_00_053.jpg:
     title: Road to Ghandruk
     location: Ghandruk
     taken: "2025-10-21 11:14:02"
     gps: { lat: 28.3655, lon: 83.8045 }
-  IMG_20251021_002911_00_054.jpg:
-    title: Road to Ghandruk
-    location: Ghandruk
-    taken: "2025-10-21 11:14:11"
-    gps: { lat: 28.3655, lon: 83.8045 }
   IMG_20251021_012810_00_055.jpg:
     title: Into Ghandruk village
     location: Ghandruk
     taken: "2025-10-21 12:13:10"
-    gps: { lat: 28.3735, lon: 83.8062 }
-  IMG_20251021_012820_00_056.jpg:
-    title: Into Ghandruk village
-    location: Ghandruk
-    taken: "2025-10-21 12:13:20"
     gps: { lat: 28.3735, lon: 83.8062 }
   IMG_20251021_164006_00_065.jpg:
     title: Our balcony in Ghandruk
@@ -102,45 +77,21 @@ photos:
     title: Stone steps
     location: Ghandruk
     gps: { lat: 28.3772, lon: 83.8081 }
-  IMG_20251021_165842_00_075.jpg:
-    title: Stone steps
-    location: Ghandruk
-    gps: { lat: 28.3772, lon: 83.8081 }
   IMG_20251021_175814_00_086.jpg:
     title: Evening on the terrace
     caption: The last light on the Annapurnas from our lodge.
     location: Ghandruk
     gps: { lat: 28.3758, lon: 83.807 }
-  IMG_20251022_100537_00_094.jpg:
+  IMG_20251022_100610_00_097.jpg:
     title: Jeep park, Ghandruk
     caption: Waiting for the ride down, with Annapurna South behind.
     location: Ghandruk
     gps: { lat: 28.3702, lon: 83.8049 }
-  IMG_20251022_100546_00_095.jpg:
-    title: Jeep park, Ghandruk
-    location: Ghandruk
-    gps: { lat: 28.3702, lon: 83.8049 }
-  IMG_20251022_100601_00_096.jpg:
-    title: Jeep park, Ghandruk
-    location: Ghandruk
-    gps: { lat: 28.3702, lon: 83.8049 }
-  IMG_20251022_100610_00_097.jpg:
-    title: Jeep park, Ghandruk
-    location: Ghandruk
-    gps: { lat: 28.3702, lon: 83.8049 }
 
   # Pokhara
-  IMG_20251023_155345_00_118.jpg:
-    title: Phewa Lake path
-    caption: Willows and rowing boats along the lakeshore.
-    location: Pokhara
-    gps: { lat: 28.2105, lon: 83.9577 }
   IMG_20251023_155400_00_119.jpg:
     title: Phewa Lake path
-    location: Pokhara
-    gps: { lat: 28.2105, lon: 83.9577 }
-  IMG_20251023_155410_00_120.jpg:
-    title: Phewa Lake path
+    caption: Willows and rowing boats along the lakeshore.
     location: Pokhara
     gps: { lat: 28.2105, lon: 83.9577 }
 

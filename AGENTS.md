@@ -74,7 +74,8 @@ CI (`.github/workflows/pages.yml`) runs lint, format check, tests and build on e
 - **GalleryPlugin focuses its active thumbnail when it opens**, which scrolled the page. `src/viewer/setup.ts` patches `HTMLElement.prototype.focus` to add `preventScroll` for elements inside `.psv-gallery`.
 - **`MarkersPlugin.removeMarker` throws if the id doesn't exist.** Use the editor's `drop()` helper pattern.
 - **VirtualTourPlugin replaces a photo's markers after `node-changed`.** Re-add temporary markers on the next tick.
-- **Auto links:** if no photo in an album has `links`, `setup.ts` adds next/previous arrows. Once any photo has links, only the written ones are used.
+- **Prev/next:** album order is navigated with fixed overlay buttons (`.tour-nav`) added in `setup.ts`, not in-scene arrows. Only `links` written in album.yml appear as arrows in the panorama.
+- **The map is driven by `setup.ts`.** VirtualTourPlugin only talks to PlanPlugin in `positionMode: "gps"`; we use `"manual"`, so `setup.ts` sets the plan hotspots, recentres on `node-changed` and handles `select-hotspot`.
 - **`tsc` needs `src/generated/albums.json`**, so `build` runs `content` first. The JSON's inferred type is looser than `Manifest`, hence the `unknown` cast in `src/manifest.ts`.
 - **Album pages are written after `vite build`**, so the service worker's precache list can't include them. HTML is deliberately not precached; navigations use a network-first runtime cache. `navigateFallback` is off; an SPA fallback would serve the home page for album URLs.
 - **Dev routing:** a Vite middleware serves `album.html` for `/albums/<slug>/`. `vite preview` serves the real generated pages.

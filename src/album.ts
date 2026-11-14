@@ -44,7 +44,7 @@ if (!album || !album.photos.length) {
     <div class="viewer-wrap"><div id="viewer" class="viewer"></div></div>
     <div class="page">
       <section class="photo-details" aria-live="polite"></section>
-      <p class="viewer-hint muted">Drag to look around. Use the arrows to move between photos; Ctrl + scroll (or pinch) to zoom.</p>
+      <p class="viewer-hint muted">Drag to look around. Use the arrows at the sides (or the map) to move between photos; Ctrl + scroll (or pinch) to zoom.</p>
     </div>`;
 
   const details = app.querySelector<HTMLElement>(".photo-details")!;
