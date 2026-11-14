@@ -9,6 +9,8 @@ export const icons = {
   monitor: svg('<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>'),
   moon: svg('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'),
   arrowLeft: svg('<path d="M19 12H5M12 19l-7-7 7-7"/>'),
+  chevronLeft: svg('<path d="m15 18-6-6 6-6"/>'),
+  chevronRight: svg('<path d="m9 18 6-6-6-6"/>'),
   external: svg('<path d="M7 17 17 7M8 7h9v9"/>'),
   pin: svg(
     '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',

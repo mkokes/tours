@@ -15,8 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Fixed previous/next buttons on the viewer edges replace the in-panorama arrows, which didn't point towards the next photo.
+- Nepal: removed near-duplicate shots, keeping one per spot.
 - The style tokens load from `styleguide/tokens.css`; the copy in `src/styles/` was removed.
 - The README covers styling, the PWA and the current deploy setup.
+
+### Fixed
+
+- The street map now follows the current photo and highlights its spot; clicking a spot on the map opens that photo.
 
 ## [1.0.0] - 2026-11-14
 
