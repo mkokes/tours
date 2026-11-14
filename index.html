@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="360° photo albums by Marty Kokes." />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Marty Kokes · Tours" />
+    <meta property="og:title" content="Tours · Marty Kokes" />
+    <meta property="og:description" content="360° photo albums by Marty Kokes." />
+    <meta property="og:url" content="https://tours.martykokes.com/" />
+    <title>Tours · Marty Kokes</title>
+    <script>
+      // Apply the saved or system theme before first paint to avoid a flash.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t !== "light" && t !== "dark") {
+          t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = t;
+        document.querySelector('meta[name="theme-color"]').content =
+          t === "dark" ? "#242424" : "#FFFFFF";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header"></header>
+    <main id="app" class="page"></main>
+    <footer class="site-footer"></footer>
+    <script type="module" src="/src/home.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tours.martykokes.com/sitemap.xml

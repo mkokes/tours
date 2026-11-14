@@ -1,0 +1,9 @@
+{
+  "ignorePatterns": [
+    "dist",
+    "coverage",
+    "package-lock.json",
+    "src/styles/tokens.css",
+    "src/generated/**"
+  ]
+}

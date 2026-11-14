@@ -1,0 +1,8 @@
+node_modules
+dist
+.cache
+public/media
+src/generated
+coverage
+.DS_Store
+*.local

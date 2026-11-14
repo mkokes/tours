@@ -1,0 +1,111 @@
+/*
+ * photo-sphere-viewer in the martykokes palette. The viewer is always dark (photos read best on
+ * charcoal), so lime is safe here as an accent on dark surfaces.
+ */
+.viewer {
+  --tour-charcoal: #242424;
+  --tour-lime: #baff39;
+  font-family: var(--font-body);
+}
+
+.viewer .psv-navbar {
+  background: color-mix(in srgb, var(--tour-charcoal) 82%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.viewer .psv-button:hover,
+.viewer .psv-button--active {
+  color: var(--tour-lime);
+}
+
+.viewer .psv-caption-content {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.viewer .psv-loader {
+  color: var(--tour-lime);
+}
+
+.viewer .psv-loader-text {
+  font-family: var(--font-body);
+}
+
+.viewer .psv-tooltip {
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--tour-charcoal) 92%, transparent);
+  font-family: var(--font-body);
+}
+
+.viewer .psv-panel {
+  background: color-mix(in srgb, var(--tour-charcoal) 94%, transparent);
+  font-family: var(--font-body);
+}
+
+.viewer .psv-panel h3 {
+  font-family: var(--font-heading);
+  color: #f7f7f7;
+}
+
+.viewer .psv-overlay,
+.viewer .psv-notification-content {
+  font-family: var(--font-body);
+}
+
+.viewer .psv-gallery {
+  background: color-mix(in srgb, var(--tour-charcoal) 82%, transparent);
+}
+
+.viewer .psv-gallery-item--active {
+  outline: 2px solid var(--tour-lime);
+  outline-offset: -2px;
+}
+
+.viewer .psv-gallery-item-title {
+  font-family: var(--font-body);
+}
+
+.viewer .psv-plan__container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Marker hotspots: a lime dot with a pulsing ring. */
+.tour-pin {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--tour-lime, #baff39);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.45);
+  cursor: pointer;
+}
+
+.tour-pin::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 2px solid var(--tour-lime, #baff39);
+  border-radius: 50%;
+  animation: tour-pulse 2s ease-out infinite;
+}
+
+@keyframes tour-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-pin::after {
+    animation: none;
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,30 @@
+# Demo album: CC0 panoramas from Poly Haven (polyhaven.com). Replace with your own photos.
+# Every field is optional; see README.md for the full reference.
+title: Demo Tour
+date: 2026-11-14
+location: South Africa & Italy
+description: Sample CC0 panoramas from Poly Haven, here to show how albums work. Drag to look around.
+order: [kloofendal.jpg, rosendal-park.jpg, venice.jpg]
+cover: venice.jpg
+photos:
+  kloofendal.jpg:
+    title: Kloofendal Nature Reserve
+    caption: Partly cloudy afternoon on the ridge. Photo by Greg Zaal.
+    location: Roodepoort, South Africa
+    gps: { lat: -26.140662, lon: 27.899844 }
+  rosendal-park.jpg:
+    title: Rosendal Park
+    caption: Warm sunset light over dry grass. Photo by Dimitrios Savva.
+    location: Rosendal, South Africa
+    gps: { lat: -28.506456, lon: 27.9373 }
+  venice.jpg:
+    title: Venice Sunset
+    caption: Evening over the lagoon. Photo by Greg Zaal.
+    location: Venice, Italy
+    gps: { lat: 45.4303, lon: 12.3541 }
+    markers:
+      - id: lagoon
+        yaw: 0.9
+        pitch: -0.1
+        tooltip: The lagoon
+        content: "<h3>Venetian Lagoon</h3><p>Markers can open a side panel with any HTML.</p>"
