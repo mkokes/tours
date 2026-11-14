@@ -1,7 +1,8 @@
 /*
  * Ported from martykokes.com (src/index.css) without antd. Uses the mk-styleguide role variables
- * from tokens.css, which follow <html data-theme>. Lime (--color-primary) is a fill only;
- * text-coloured accents use --color-link.
+ * from styleguide/tokens.css (loaded in layout.ts), which follow <html data-theme>. Lime
+ * (--color-primary) is a fill only; text-coloured accents use --color-link. See
+ * styleguide/STYLEGUIDE.md.
  */
 :root {
   --accent-tint: var(--color-primary-50);
