@@ -197,7 +197,9 @@ export async function readExif(
   }
   try {
     const gps = await exifr.gps(buf);
-    if (gps && Number.isFinite(gps.latitude) && Number.isFinite(gps.longitude)) {
+    // Cameras without a GPS fix (e.g. an Insta360 not paired with a phone) write 0,0; treat it as none.
+    const unset = gps?.latitude === 0 && gps?.longitude === 0;
+    if (gps && !unset && Number.isFinite(gps.latitude) && Number.isFinite(gps.longitude)) {
       out.gps = [round(gps.longitude), round(gps.latitude)];
     }
   } catch {

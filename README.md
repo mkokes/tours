@@ -51,7 +51,8 @@ photos:
     title: The Dock # defaults to the filename
     caption: Morning fog.
     location: Grand Marais, MN
-    gps: { lat: 47.75, lon: -90.33 } # overrides or supplies EXIF GPS
+    gps: { lat: 47.75, lon: -90.33 } # overrides or supplies EXIF GPS (EXIF 0,0 counts as none)
+    taken: "2026-08-10 07:45" # overrides the EXIF time, e.g. if the camera clock was wrong
     markers:
       - id: boat
         yaw: 1.2 # radians; use the hotspot editor to find these
