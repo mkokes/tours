@@ -3,7 +3,7 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
-import "./styles/tokens.css";
+import "../styleguide/tokens.css";
 import "./styles/site.css";
 import { icons } from "./icons";
 import { getThemePref, setThemePref, type ThemePref } from "./theme";
