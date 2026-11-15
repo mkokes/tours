@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - The street map now follows the current photo and highlights its spot; clicking a spot on the map opens that photo.
+- The previous/next photo buttons work on phones and tablets. Taps were swallowed by the viewer's touch handling.
 
 ## [1.0.0] - 2026-11-14
 
