@@ -139,6 +139,8 @@ kbd {
   position: sticky;
   top: 0;
   z-index: 100;
+  /* The border sits inside the 64px, as with the antd Layout.Header on martykokes.com. */
+  height: var(--header-height);
   border-bottom: 1px solid transparent;
   transition:
     background-color 200ms,
@@ -157,7 +159,7 @@ kbd {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: var(--header-height);
+  height: 100%;
   padding: 0 16px;
 }
 
@@ -223,7 +225,7 @@ kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: 36px;
   height: 28px;
   padding: 0;
   border: 0;
@@ -257,7 +259,8 @@ kbd {
   cursor: pointer;
 }
 
-.nav-mobile {
+/* .header-inner prefix: .icon-button (declared later) would otherwise win and show it on desktop. */
+.header-inner .nav-mobile {
   display: none;
 }
 
@@ -293,12 +296,17 @@ kbd {
 .nav-drawer-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border);
+  gap: 4px;
+  padding: 12px 24px 12px 14px;
+}
+
+.nav-drawer-close {
+  color: var(--color-text-muted);
+  font-size: 20px;
 }
 
 .nav-drawer-title {
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -306,7 +314,7 @@ kbd {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 16px;
+  padding: 24px;
 }
 
 .nav-drawer .nav-link {
@@ -327,7 +335,7 @@ kbd {
     display: none;
   }
 
-  .nav-mobile {
+  .header-inner .nav-mobile {
     display: inline-flex;
   }
 }
