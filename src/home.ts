@@ -5,7 +5,7 @@ import { icons } from "./icons";
 import { renderLayout } from "./layout";
 import { initShareButtons, shareButton, shareUrl } from "./share";
 
-renderLayout("albums");
+renderLayout("home");
 
 const app = document.getElementById("app")!;
 initShareButtons();

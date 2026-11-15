@@ -7,7 +7,7 @@ import { initShareButtons, shareButton, shareUrl } from "./share";
 import { renderPhotoDetails } from "./viewer/meta-panel";
 import { createTourViewer } from "./viewer/setup";
 
-renderLayout(null);
+renderLayout("album");
 
 const app = document.getElementById("app")!;
 initShareButtons();

@@ -11,7 +11,8 @@ export const icons = {
   arrowLeft: svg('<path d="M19 12H5M12 19l-7-7 7-7"/>'),
   chevronLeft: svg('<path d="m15 18-6-6 6-6"/>'),
   chevronRight: svg('<path d="m9 18 6-6-6-6"/>'),
-  external: svg('<path d="M7 17 17 7M8 7h9v9"/>'),
+  menu: svg('<path d="M4 6h16M4 12h16M4 18h16"/>'),
+  close: svg('<path d="M18 6 6 18M6 6l12 12"/>'),
   pin: svg(
     '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
   ),
