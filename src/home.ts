@@ -4,7 +4,7 @@ import { esc, formatDate, plural } from "./format";
 import { icons } from "./icons";
 import { renderLayout } from "./layout";
 
-renderLayout("albums");
+renderLayout("home");
 
 const app = document.getElementById("app")!;
 const albums = manifest.albums.filter((a) => !a.unlisted);

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The header uses martykokes.com's navigation (Home, About, Experience, Projects, Tours, Contact) so the two sites feel like one. The logo goes to martykokes.com, Tours is highlighted, and small screens get the same slide-out menu.
 - Fixed previous/next buttons on the viewer edges replace the in-panorama arrows, which didn't point towards the next photo.
 - Nepal: removed near-duplicate shots, keeping one per spot.
 

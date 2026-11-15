@@ -19,7 +19,7 @@ scripts/
   lib/resolve.test.ts   Vitest tests for resolve.ts, schema.ts and pages.ts
 src/
   home.ts, album.ts     Page entry points (index.html, album.html)
-  layout.ts             Fonts, styleguide tokens, header/footer, theme toggle
+  layout.ts             Fonts, styleguide tokens, header/footer (nav mirrors martykokes.com), theme toggle
   theme.ts              Light / System / Dark preference (localStorage "theme")
   manifest.ts           Typed import of src/generated/albums.json
   content/types.ts      Manifest types (shared by scripts and the client)
@@ -65,6 +65,7 @@ CI (`.github/workflows/pages.yml`) runs lint, format check, tests and build on e
 - **HTML from text:** escape everything with `esc()` (`src/format.ts`). The exception is marker `content` from `album.yml`, which is author-written HTML by design.
 - **Dev-only code** goes behind `import.meta.env.DEV` with a dynamic import, so it's dropped from production builds (see the editor in `src/album.ts`).
 - Formatting is oxfmt; don't hand-format against it.
+- **Navigation** is shared with martykokes.com: `navItems` in `src/layout.ts` must keep the same items and order as `navItems` in martykokes's `src/components/SiteLayout.tsx`. Links back to the main site are same-tab, so the two read as one site.
 - Record user-facing changes in [CHANGELOG.md](CHANGELOG.md) under Unreleased.
 
 ## Gotchas

@@ -21,16 +21,33 @@ const socialLinks = [
   { label: "GitHub", url: "https://github.com/mkokes", icon: icons.github },
 ];
 
-/** Renders the shared header and footer, matching martykokes.com. */
-export function renderLayout(active: "albums" | null) {
+// Same items and order as navItems in martykokes.com's SiteLayout.tsx; keep them in step.
+const navItems = [
+  { href: `${MAIN_SITE}/`, label: "Home" },
+  { href: `${MAIN_SITE}/about`, label: "About" },
+  { href: `${MAIN_SITE}/experience`, label: "Experience" },
+  { href: `${MAIN_SITE}/projects`, label: "Projects" },
+  { href: "/", label: "Tours", tours: true },
+  { href: `${MAIN_SITE}/contact`, label: "Contact" },
+];
+
+/**
+ * Renders the shared header and footer, matching martykokes.com so the two read as one site.
+ * Tours is the active section on every page; `page` is "home" on the album list itself.
+ */
+export function renderLayout(page: "home" | "album") {
+  const navLinks = navItems
+    .map((i) => {
+      const current = i.tours && page === "home" ? ' aria-current="page"' : "";
+      return `<a class="nav-link${i.tours ? " active" : ""}" href="${i.href}"${current}>${i.label}</a>`;
+    })
+    .join("");
+
   const header = document.querySelector<HTMLElement>(".site-header")!;
   header.innerHTML = `
     <div class="header-inner">
-      <a class="site-logo" href="/">Marty Kokes <span class="site-logo-sub">Tours</span></a>
-      <nav class="nav-desktop" aria-label="Main">
-        <a class="nav-link${active === "albums" ? " active" : ""}" href="/"${active === "albums" ? ' aria-current="page"' : ""}>Albums</a>
-        <a class="nav-link" href="${MAIN_SITE}">martykokes.com <span class="nav-ext">${icons.external}</span></a>
-      </nav>
+      <a class="site-logo" href="${MAIN_SITE}/">Marty Kokes</a>
+      <nav class="nav-desktop" aria-label="Main">${navLinks}</nav>
       <div class="theme-toggle" role="radiogroup" aria-label="Theme">
         ${themeOptions
           .map(
@@ -39,7 +56,27 @@ export function renderLayout(active: "albums" | null) {
           )
           .join("")}
       </div>
-    </div>`;
+      <button type="button" class="nav-mobile icon-button" aria-label="Open menu" aria-haspopup="dialog">${icons.menu}</button>
+    </div>
+    <dialog class="nav-drawer-dialog" aria-label="Menu">
+      <div class="nav-drawer-header">
+        <button type="button" class="icon-button nav-drawer-close" aria-label="Close">${icons.close}</button>
+        <span class="nav-drawer-title">Menu</span>
+      </div>
+      <nav class="nav-drawer" aria-label="Main">${navLinks}</nav>
+    </dialog>`;
+
+  const drawer = header.querySelector<HTMLDialogElement>(".nav-drawer-dialog")!;
+  header.querySelector(".nav-mobile")!.addEventListener("click", () => drawer.showModal());
+  header.querySelector(".nav-drawer-close")!.addEventListener("click", () => drawer.close());
+  // A click on the backdrop lands on the dialog element itself.
+  drawer.addEventListener("click", (e) => {
+    if (e.target === drawer) drawer.close();
+  });
+  // Close if the window grows past the mobile breakpoint while the drawer is open.
+  matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+    if (e.matches) drawer.close();
+  });
 
   const buttons = header.querySelectorAll<HTMLButtonElement>(".theme-option");
   const sync = () => {
