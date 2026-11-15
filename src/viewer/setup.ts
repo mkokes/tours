@@ -1,4 +1,4 @@
-import { Viewer } from "@photo-sphere-viewer/core";
+import { CONSTANTS, Viewer } from "@photo-sphere-viewer/core";
 import "@photo-sphere-viewer/core/index.css";
 import { AutorotatePlugin } from "@photo-sphere-viewer/autorotate-plugin";
 import { GalleryPlugin } from "@photo-sphere-viewer/gallery-plugin";
@@ -66,7 +66,12 @@ function addNavButtons(
   const make = (dir: "prev" | "next") => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = `tour-nav tour-nav-${dir}`;
+    /*
+     * The capture-events class makes the viewer ignore presses that start on the button. Without it, a
+     * tap's touchstart reaches the viewer, whose window touchend handler then calls preventDefault()
+     * and the browser never fires the click, so the buttons did nothing on touch screens.
+     */
+    button.className = `tour-nav tour-nav-${dir} ${CONSTANTS.CAPTURE_EVENTS_CLASS}`;
     button.setAttribute("aria-label", dir === "prev" ? "Previous photo" : "Next photo");
     button.innerHTML = dir === "prev" ? icons.chevronLeft : icons.chevronRight;
     viewer.container.appendChild(button);
@@ -80,8 +85,6 @@ function addNavButtons(
   };
   prev.addEventListener("click", () => go(-1));
   next.addEventListener("click", () => go(1));
-  // Don't let clicks on the buttons reach the panorama (drag/click handling).
-  for (const b of [prev, next]) b.addEventListener("pointerdown", (e) => e.stopPropagation());
 
   return (photo) => {
     current = Math.max(0, album.photos.indexOf(photo));
