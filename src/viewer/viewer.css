@@ -70,13 +70,10 @@
   overflow: hidden;
 }
 
-/*
- * Fixed previous/next buttons on the viewer edges. Set above centre so the left one clears the map
- * (bottom left) when the gallery is open and pushes it up.
- */
+/* Fixed previous/next buttons, vertically centred on the viewer edges. */
 .tour-nav {
   position: absolute;
-  top: 30%;
+  top: 50%;
   z-index: 80;
   display: grid;
   place-items: center;

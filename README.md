@@ -31,8 +31,6 @@ The build makes web-sized copies of each photo in `public/media/` (gitignored): 
 
 While `npm run dev` is running, any change under `albums/` rebuilds automatically.
 
-To remove the demo album, delete `albums/demo/`.
-
 ## album.yml
 
 Every field is optional. Photos are keyed by filename. A mistake (a misspelled key, a reference to a missing photo, a bad value) fails the build with the file and field named.
@@ -71,7 +69,7 @@ If **no** photo in the album has `links`, every photo gets a "next" arrow straig
 
 ### Sharing a photo
 
-Album URLs take `?p=<photo>` to open a specific photo, for example `/albums/demo/?p=venice`. The photo id is the filename without its extension, lowercased, with other characters turned into dashes. The address bar updates as you move around, so you can copy it to share the current view.
+Album URLs take `?p=<photo>` to open a specific photo, for example `/albums/nepal/?p=img-20251021-175814-00-086`. The photo id is the filename without its extension, lowercased, with other characters turned into dashes. The address bar updates as you move around, so you can copy it to share the current view.
 
 ## Hotspot editor (dev only)
 
@@ -129,4 +127,4 @@ More detail for contributors and coding agents: [AGENTS.md](AGENTS.md). Release 
 
 ## Credits
 
-The demo album uses CC0 panoramas from [Poly Haven](https://polyhaven.com). Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
