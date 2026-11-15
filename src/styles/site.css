@@ -553,6 +553,96 @@ kbd {
   margin-bottom: 8px;
 }
 
+.photo-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 8px;
+}
+
+.photo-title-row h2 {
+  margin-bottom: 0;
+}
+
+/* Share (copy link) buttons */
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font: 500 0.8125rem/1.4 var(--font-body);
+  cursor: pointer;
+  transition:
+    border-color 150ms,
+    color 150ms,
+    background-color 150ms;
+}
+
+.share-button:hover,
+.share-button.is-copied {
+  border-color: var(--color-link);
+  color: var(--color-link);
+}
+
+.share-button.is-copied {
+  background: var(--accent-tint);
+}
+
+.share-icon {
+  display: inline-flex;
+  font-size: 1rem;
+}
+
+.album-share {
+  margin: 0;
+}
+
+/* On album cards: a round icon button over the cover, opposite the 360° badge. */
+.album-item {
+  position: relative;
+}
+
+.share-button-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 150ms ease-out,
+    color 150ms,
+    background-color 150ms;
+}
+
+.share-button-icon .share-label,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Follow the card's hover lift so the button stays put on the cover. */
+.album-item:hover .share-button-icon {
+  transform: translateY(-2px);
+}
+
 .caption {
   max-width: 70ch;
   font-size: 1.0625rem;

@@ -3,10 +3,12 @@ import { manifest } from "./manifest";
 import { esc, formatDate, plural } from "./format";
 import { icons } from "./icons";
 import { renderLayout } from "./layout";
+import { initShareButtons, shareButton, shareUrl } from "./share";
 
 renderLayout("albums");
 
 const app = document.getElementById("app")!;
+initShareButtons();
 const albums = manifest.albums.filter((a) => !a.unlisted);
 const notFound = document.body.dataset.notFound === "true";
 
@@ -37,8 +39,10 @@ function albumCard(a: Album): string {
   ]
     .filter(Boolean)
     .join("");
+  // The share button sits beside the card link, not inside it (no buttons inside links).
   return `
-    <li>
+    <li class="album-item">
+      ${shareButton(shareUrl(location.origin, a.slug), `Copy link to ${a.title}`, "share-button-icon")}
       <a class="album-card lift" href="/albums/${a.slug}/">
         <span class="album-cover">
           <img src="${cover.media.preview}" alt="" width="1024" height="512" loading="lazy" decoding="async" />

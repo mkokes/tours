@@ -3,12 +3,14 @@ import { manifest } from "./manifest";
 import { esc, formatDate, plural } from "./format";
 import { icons } from "./icons";
 import { renderLayout } from "./layout";
+import { initShareButtons, shareButton, shareUrl } from "./share";
 import { renderPhotoDetails } from "./viewer/meta-panel";
 import { createTourViewer } from "./viewer/setup";
 
 renderLayout(null);
 
 const app = document.getElementById("app")!;
+initShareButtons();
 const slug = location.pathname.match(/^\/albums\/([a-z0-9-]+)\/?$/)?.[1];
 const album = manifest.albums.find((a) => a.slug === slug);
 
@@ -39,6 +41,7 @@ if (!album || !album.photos.length) {
       <h1>${esc(album.title)}</h1>
       <p class="album-meta">${meta}</p>
       ${album.description ? `<p class="lead">${esc(album.description)}</p>` : ""}
+      <p class="album-share">${shareButton(shareUrl(location.origin, album.slug), "Copy album link")}</p>
       <div class="album-tools"></div>
     </div>
     <div class="viewer-wrap"><div id="viewer" class="viewer"></div></div>

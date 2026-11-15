@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Copy-link buttons for sharing: one on each album card, one on the album page and one for the current photo (its link opens that photo). The button confirms with "Link copied".
 - Installable PWA: manifest, maskable and Apple icons generated from the favicon, and offline caching. Albums you've opened before work offline, except the map tiles.
 - The mk-styleguide is vendored in `styleguide/` (`tokens.css` and `STYLEGUIDE.md`), as in martykokes.com.
 - AGENTS.md, CLAUDE.md and this changelog.
