@@ -1,0 +1,5 @@
+title: Garage
+photos:
+  IMG_20181001_190029_00_431.jpg:
+    title: The garage
+    gps: { lat: -77.8419, lon: 166.6863 } # McMurdo Station
