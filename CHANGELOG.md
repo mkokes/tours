@@ -20,12 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The header uses martykokes.com's navigation (Home, About, Experience, Projects, Tours, Contact) so the two sites feel like one. The logo goes to martykokes.com, Tours is highlighted, and small screens get the same slide-out menu.
 - Fixed previous/next buttons on the viewer edges replace the in-panorama arrows, which didn't point towards the next photo.
 - Nepal: removed near-duplicate shots, keeping one per spot.
+- Updated the README to cover styling, the PWA, sharing, and the current deploy setup.
 
 ### Removed
 
 - The demo album (Poly Haven panoramas).
 - The style tokens load from `styleguide/tokens.css`; the copy in `src/styles/` was removed.
-- The README covers styling, the PWA and the current deploy setup.
 
 ### Fixed
 

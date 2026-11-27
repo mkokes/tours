@@ -65,11 +65,11 @@ photos:
 
 ### Moving between photos
 
-If **no** photo in the album has `links`, every photo gets a "next" arrow straight ahead and a "previous" arrow behind, following album order. Once you add `links` to any photo, only the links you write are used, so a hand-built tour has no stray arrows. The thumbnail strip always lets you jump to any photo.
+Previous and next buttons on the edges of the viewer step through photos in album order, and the thumbnail strip (plus the map, when GPS data is present) lets you jump directly to any photo. Any `links` you add in `album.yml` appear as clickable arrows inside the panorama itself.
 
-### Sharing a photo
+### Sharing an album or photo
 
-Album URLs take `?p=<photo>` to open a specific photo, for example `/albums/nepal/?p=img-20251021-175814-00-086`. The photo id is the filename without its extension, lowercased, with other characters turned into dashes. The address bar updates as you move around, so you can copy it to share the current view.
+Copy-link buttons sit on each album card, at the top of each album page, and in the photo details panel below the viewer. Album URLs take `?p=<photo>` to open a specific photo, for example `/albums/nepal/?p=img-20251021-175814-00-086`. The photo id is the filename without its extension, lowercased, with other characters turned into dashes. The address bar updates as you move around, so you can also copy it directly.
 
 ## Hotspot editor (dev only)
 
@@ -110,18 +110,20 @@ Hosting setup (already done):
 
 ## Project layout
 
-| Path                          | Purpose                                                                                    |
-| ----------------------------- | ------------------------------------------------------------------------------------------ |
-| `albums/`                     | Source photos and `album.yml` files                                                        |
-| `scripts/lib/content.ts`      | Scans albums, reads EXIF, resizes images, writes the manifest                              |
-| `scripts/lib/resolve.ts`      | Rules for defaults, ordering and GPS hiding (unit tested)                                  |
-| `scripts/build-pages.ts`      | After the build, writes each album's page with link-preview tags, plus the 404 and sitemap |
-| `src/content/schema.ts`       | `album.yml` validation                                                                     |
-| `src/home.ts`, `src/album.ts` | Page entry points                                                                          |
-| `src/viewer/`                 | Viewer setup, details panel, dev-only editor                                               |
-| `src/styles/site.css`         | Site styles built on the styleguide tokens                                                 |
-| `styleguide/`                 | Vendored mk-styleguide (`tokens.css`, `STYLEGUIDE.md`); don't edit it here                 |
-| `pwa-assets.config.ts`        | Icon generation for the PWA                                                                |
+| Path                            | Purpose                                                                                    |
+| ------------------------------- | ------------------------------------------------------------------------------------------ |
+| `albums/`                       | Source photos and `album.yml` files                                                        |
+| `scripts/lib/content.ts`        | Scans albums, reads EXIF, resizes images, writes the manifest                              |
+| `scripts/lib/resolve.ts`        | Rules for defaults, ordering and GPS hiding (unit tested)                                  |
+| `scripts/build-pages.ts`        | After the build, writes each album's page with link-preview tags, plus the 404 and sitemap |
+| `src/content/schema.ts`         | `album.yml` validation                                                                     |
+| `src/home.ts`, `src/album.ts`   | Page entry points                                                                          |
+| `src/layout.ts`, `src/theme.ts` | Shared header/footer navigation and Light / System / Dark theme toggle                     |
+| `src/share.ts`                  | Copy-link share buttons and `?p=<photo>` URL builder                                       |
+| `src/viewer/`                   | Viewer setup, details panel, dev-only editor                                               |
+| `src/styles/site.css`           | Site styles built on the styleguide tokens                                                 |
+| `styleguide/`                   | Vendored mk-styleguide (`tokens.css`, `STYLEGUIDE.md`); don't edit it here                 |
+| `pwa-assets.config.ts`          | Icon generation for the PWA                                                                |
 
 More detail for contributors and coding agents: [AGENTS.md](AGENTS.md). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
